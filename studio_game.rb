@@ -1,3 +1,6 @@
+# Author: Clay Beabout
+# Date: Jan 8, 2019
+
 #Allow us to acces player.rb & game.rb
 require_relative 'game'
 
@@ -24,4 +27,5 @@ knuckleheads.add_player(player1)
 knuckleheads.add_player(player2)
 knuckleheads.add_player(player3)
 knuckleheads.play
+
 puts "There are #{knuckleheads.arr_size} players in the game"

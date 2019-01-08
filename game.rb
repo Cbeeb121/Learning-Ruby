@@ -1,4 +1,7 @@
-#Finds file from same directory titled player.rb and loads it 
+# Author: Clay Beabout
+# Date: Jan 8, 2019
+
+#Finds file from same directory titled player.rb and loads it
 require_relative 'player'
 
 class Game

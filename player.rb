@@ -1,3 +1,6 @@
+# Author: Clay Beabout
+# Date: Jan 8, 2019
+
 class Player
   attr_accessor :name
   attr_reader :health
