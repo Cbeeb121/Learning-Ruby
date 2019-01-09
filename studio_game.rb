@@ -1,5 +1,5 @@
 # Author: Clay Beabout
-# Date: Jan 8, 2019
+# Updated: Jan 9, 2019
 
 #Allow us to acces player.rb & game.rb
 require_relative 'game'

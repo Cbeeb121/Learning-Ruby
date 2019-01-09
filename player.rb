@@ -1,5 +1,5 @@
 # Author: Clay Beabout
-# Date: Jan 8, 2019
+# Updated: Jan 9, 2019
 
 class Player
   attr_accessor :name
@@ -15,7 +15,7 @@ class Player
   end
 
   def to_s
-    "#{@name} has a health of #{@health}" #and a score of #{score.to_s.ljust(4,".00")}"
+    "#{@name} has a health of #{@health} (#{status})" #and a score of #{score.to_s.ljust(4,".00")}"
   end
 
   def blam
@@ -27,6 +27,16 @@ class Player
     @health+=15
     puts  "#{@name} got W00ted!"
   end
+
+  #will return true if health > 10
+  def strong?
+    @health > 100
+  end
+
+  def status
+    strong? ? "Strong" : "Wimpy"
+  end
+
 end
 
 

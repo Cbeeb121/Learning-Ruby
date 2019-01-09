@@ -1,3 +1,6 @@
+# Author: Clay Beabout
+# Updated: Jan 9, 2019
+
 require_relative 'player'
 require 'rspec' #guarantees use of rspec methods
 
@@ -26,7 +29,7 @@ describe Player do
 
   #has a string representation
   it "has a string representation" do
-    @player.to_s.should == "Larry has a health of 150"
+    @player.to_s.should == "Larry has a health of 150 (Strong)"
   end
 
   #computes a score as the sum of its health and length of name
@@ -45,5 +48,50 @@ describe Player do
     @player.blam
     @player.health.should == 140
   end
+
+=begin
+  context "with health of at least 10" do
+    before do
+      @player = Player.new("Larry",10)
+    end
+    it "is at full health" do
+      #same as @player.should be_fullhealth
+      @player.fullhealth?.should == true
+    end
+  end
+
+  context "with health less than 10" do
+    before do
+      @player = Player.new("Larry",9)
+    end
+    it "is not at full health" do
+      #same as @player.should_not be_fullhealth
+      @player.fullhealth?.should == false
+    end
+  end
+=end
+
+  context "with health higher than 150" do
+    before do
+      @player = Player.new("Larry",150)
+    end
+    it "is strong" do
+      @player.strong?.should == true
+    end
+  end
+
+  context "with health lower than 150" do
+    before do
+      @player = Player.new("Larry",100)
+    end
+    it "is wimpy" do
+      @player.should_not be_strong
+    end
+  end
+
+
+
+
+
 
 end
