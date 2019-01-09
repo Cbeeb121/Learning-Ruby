@@ -15,7 +15,7 @@ class Player
   end
 
   def to_s
-    "#{@name} has a health of #{@health} and a score of #{score.to_s.ljust(4,".00")}"
+    "#{@name} has a health of #{@health}" #and a score of #{score.to_s.ljust(4,".00")}"
   end
 
   def blam
