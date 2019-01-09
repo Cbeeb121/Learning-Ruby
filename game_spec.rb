@@ -2,6 +2,8 @@
 # Updated: Jan 8, 2019
 
 require_relative 'game'
+require_relative 'player'
+require_relative 'die'
 
 describe Game do
 

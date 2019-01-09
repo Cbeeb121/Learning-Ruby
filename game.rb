@@ -3,7 +3,7 @@
 
 #Finds file from same directory titled player.rb and loads it
 require_relative 'player'
-require_relative 'die'
+require_relative 'game_turn'
 
 class Game
   attr_reader :title
@@ -26,21 +26,13 @@ class Game
   end
 
   def play
-    puts "There are #{@players.size} players in the game."
+    puts "There are #{@players.size} players in #{@title}."
     @players.each do |p|
       puts p
     end
 
     @players.each do |p|
-      dice = Die.new
-      number_rolled = dice.roll
-      if number_rolled > 4
-        p.w00t
-      elsif number_rolled > 2
-        puts "#{p.name} was skipped."
-      else
-        p.blam
-      end
+      GameTurn.take_turn(p)
       puts p
     end
 
