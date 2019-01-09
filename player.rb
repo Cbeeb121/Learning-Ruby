@@ -5,6 +5,10 @@ class Player
   attr_accessor :name
   attr_reader :health
 
+  def <=>(other)
+    other.score <=> score
+  end
+
   def score
     @health + @name.length
   end

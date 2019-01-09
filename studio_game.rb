@@ -28,8 +28,7 @@ knuckleheads = Game.new("knuckleheads")
 knuckleheads.add_player(player1)
 knuckleheads.add_player(player2)
 knuckleheads.add_player(player3)
-knuckleheads.play
-
-puts "There are #{knuckleheads.arr_size} players in the game"
+knuckleheads.play(3)
+knuckleheads.print_stats
 
 puts "\n"

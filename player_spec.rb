@@ -49,27 +49,19 @@ describe Player do
     @player.health.should == 140
   end
 
-=begin
-  context "with health of at least 10" do
+  context "in a collection of players" do
     before do
-      @player = Player.new("Larry",10)
-    end
-    it "is at full health" do
-      #same as @player.should be_fullhealth
-      @player.fullhealth?.should == true
-    end
-  end
+      @player1 = Player.new("moe", 100)
+      @player2 = Player.new("larry", 200)
+      @player3 = Player.new("curly", 300)
 
-  context "with health less than 10" do
-    before do
-      @player = Player.new("Larry",9)
+      @players = [@player1, @player2, @player3]
     end
-    it "is not at full health" do
-      #same as @player.should_not be_fullhealth
-      @player.fullhealth?.should == false
+
+    it "is sorted by decreasing score" do
+      @players.sort.should == [@player3, @player2, @player1]
     end
   end
-=end
 
   context "with health higher than 150" do
     before do
@@ -88,10 +80,5 @@ describe Player do
       @player.should_not be_strong
     end
   end
-
-
-
-
-
 
 end

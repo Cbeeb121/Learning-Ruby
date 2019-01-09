@@ -25,16 +25,48 @@ class Game
     @players.push(playerX)
   end
 
-  def play
+  def play(rounds)
     puts "There are #{@players.size} players in #{@title}."
     @players.each do |p|
       puts p
     end
 
-    @players.each do |p|
-      GameTurn.take_turn(p)
-      puts p
+    #SHOULD BE |rounds|
+    1.upto(rounds) do |round|
+      puts "\nRound #{round}:"
+      @players.each do |p|
+        GameTurn.take_turn(p)
+        puts p
+      end
     end
-
   end
+  #end of play
+
+  def print_name_and_health(player)
+    puts "#{player.name} (#{player.health})"
+  end
+
+  def print_stats
+      puts "\n#{@title} Statistics:\n\n"
+      strong_players, wimpy_players = @players.partition { |p| p.strong? }
+
+      puts "#{strong_players.size}) strong players"
+      strong_players.each do |p|
+        print_name_and_health(p)
+      end
+
+      puts "\n#{wimpy_players.size}) wimpy players"
+      wimpy_players.each do |p|
+        print_name_and_health(p)
+      end
+
+      sorted_players = @players.sort { |a , b| b.score <=> a.score }
+      puts "\nKnuckleheads high scores:\n"
+      @players.sort.each do |p|
+        formatted_name = p.name.ljust(20, '.')
+        puts "#{formatted_name} #{p.score}"
+      end
+  end
+
+
 end
