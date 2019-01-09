@@ -4,6 +4,8 @@
 #Allow us to acces player.rb & game.rb
 require_relative 'game'
 
+puts "\n"
+
 #player name variables
 p1 = "art3mis"
 p2 = "parzival"
@@ -29,3 +31,5 @@ knuckleheads.add_player(player3)
 knuckleheads.play
 
 puts "There are #{knuckleheads.arr_size} players in the game"
+
+puts "\n"

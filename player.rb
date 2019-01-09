@@ -33,6 +33,9 @@ end
 #if player.rb equals the currently running program
 if __FILE__ == $0
 
+  #checking to guarantee if statement works
+  puts "\n[WARNING] If NOT running ruby player.rb alone, ERROR\n"
+
   #player name variables
   p1 = "art3mis"
   p2 = "parzival"
@@ -49,7 +52,6 @@ if __FILE__ == $0
   player3 = Player.new(p3,h3)
   player4 = Player.new(p4,h4)
 
-  puts "In player.rb"
   puts player1
   puts player2
   puts player3
