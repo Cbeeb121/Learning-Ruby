@@ -5,8 +5,14 @@ class Player
   attr_accessor :name
   attr_reader :health
 
+  #overloading the comparison operator for Player score comparison
   def <=>(other)
     other.score <=> score
+  end
+
+  #overloading the comparison operator for Player health comparison
+  def <=>(other)
+    other.health <=> health
   end
 
   def score
