@@ -1,6 +1,7 @@
 module GameTurn
 require_relative 'player'
 require_relative 'die'
+require_relative 'treasure_trove'
 
   def self.take_turn(player)
     dice = Die.new
@@ -12,5 +13,10 @@ require_relative 'die'
     else
       player.w00t
     end
+
+    #Randomized treasure finding section
+    treasures = TreasureTrove::TREASURES
+    rand_treas = treasures.sample
+    puts "#{player.name} found a #{rand_treas.name} worth #{rand_treas.points}"
   end
 end

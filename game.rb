@@ -4,6 +4,7 @@
 #Finds file from same directory titled player.rb and loads it
 require_relative 'player'
 require_relative 'game_turn'
+require_relative 'treasure_trove'
 
 class Game
   attr_reader :title
@@ -31,9 +32,17 @@ class Game
       puts p
     end
 
-    #SHOULD BE |rounds|
-    1.upto(rounds) do |round|
-      puts "\nRound #{round}:"
+    treasures = TreasureTrove::TREASURES
+    puts "\nThere are #{treasures.size} treasures in the game."
+    treasures.each do |t|
+      puts "#{t.name} has a point value of #{t.points}"
+    end
+
+
+    #it doesn't matter what variable is defined inside | |
+    #if using 1.upto, it will assume the number value starting at 1
+    1.upto(rounds) do |arbitrarynum|
+      puts "\nRound #{arbitrarynum}:"
       @players.each do |p|
         GameTurn.take_turn(p)
         puts p
