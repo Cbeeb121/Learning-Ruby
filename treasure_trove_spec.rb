@@ -1,3 +1,6 @@
+# Author: Clay Beabout
+# Updated: Jan 10, 2019
+
 require_relative 'treasure_trove'
 
 describe Treasure do

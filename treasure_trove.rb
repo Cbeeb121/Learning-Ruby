@@ -1,3 +1,6 @@
+# Author: Clay Beabout
+# Updated: Jan 10, 2019
+
 Treasure = Struct.new(:name, :points)
 
 

@@ -1,7 +1,8 @@
 # Author: Clay Beabout
-# Updated: Jan 9, 2019
+# Updated: Jan 10, 2019
 
 require_relative 'player'
+require_relative 'treasure_trove'
 require 'rspec' #guarantees use of rspec methods
 
 describe Player do
@@ -29,12 +30,16 @@ describe Player do
 
   #has a string representation
   it "has a string representation" do
-    @player.to_s.should == "Larry has a health of 150 (Strong)"
+    @player.found_treasure(Treasure.new(:hammer, 50))
+    @player.found_treasure(Treasure.new(:hammer, 50))
+    @player.to_s.should == "I'm Larry with health = 150 (Strong), points = 100, and score = 250"
   end
 
   #computes a score as the sum of its health and length of name
   it "computes a score as the sum of its health and length of name" do
-    @player.score.should == 155
+    @player.found_treasure(Treasure.new(:hammer, 50))
+    @player.found_treasure(Treasure.new(:hammer, 50))
+    @player.score.should == 250
   end
 
   #increases health by 15 when w00ted
@@ -79,6 +84,23 @@ describe Player do
     it "is wimpy" do
       @player.should_not be_strong
     end
+  end
+
+
+  it "computes points as the sum of all treasure points" do
+    @player.points.should == 0
+
+    @player.found_treasure(Treasure.new(:hammer, 50))
+
+    @player.points.should == 50
+
+    @player.found_treasure(Treasure.new(:crowbar, 400))
+
+    @player.points.should == 450
+
+    @player.found_treasure(Treasure.new(:hammer, 50))
+
+    @player.points.should == 500
   end
 
 end

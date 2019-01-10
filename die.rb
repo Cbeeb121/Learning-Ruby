@@ -1,5 +1,5 @@
 # Author: Clay Beabout
-# Updated: Jan 9, 2019
+# Updated: Jan 10, 2019
 
 #Merely to roll a random die
 class Die

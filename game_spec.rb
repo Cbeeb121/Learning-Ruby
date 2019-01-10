@@ -1,5 +1,5 @@
 # Author: Clay Beabout
-# Updated: Jan 8, 2019
+# Updated: Jan 10, 2019
 
 require_relative 'game'
 require_relative 'player'
@@ -32,5 +32,16 @@ describe Game do
     @game.play(2)
     @player.health.should == @initial_health - (10*2)
   end
+
+  it "assigns a treasure for points during a player's turn" do
+    game = Game.new("Knuckleheads")
+    player = Player.new("moe")
+    game.add_player(player)
+    game.play(1)
+    player.points.should_not be_zero
+    # or use alternate expectation syntax:
+    # expect(player.points).not_to be_zero
+  end
+
 
 end

@@ -1,5 +1,5 @@
 # Author: Clay Beabout
-# Updated: Jan 9, 2019
+# Updated: Jan 10, 2019
 
 class Player
   attr_accessor :name
@@ -16,16 +16,23 @@ class Player
   end
 
   def score
-    @health + @name.length
+    @health + points
   end
 
   def initialize(name,health=0)
     self.name = name.capitalize
     @health = health
+    @found_treasures = Hash.new(0)
+  end
+
+  def found_treasure(treasure)
+    @found_treasures[treasure.name] += treasure.points
+    puts "#{@name} found a #{treasure.name} worth #{treasure.points} points."
+    puts "#{@name}'s treasures: #{@found_treasures}"
   end
 
   def to_s
-    "#{@name} has a health of #{@health} (#{status})" #and a score of #{score.to_s.ljust(4,".00")}"
+    "I'm #{@name} with health = #{@health} (#{status}), points = #{points}, and score = #{score}" #and a score of #{score.to_s.ljust(4,".00")}"
   end
 
   def blam
@@ -45,6 +52,10 @@ class Player
 
   def status
     strong? ? "Strong" : "Wimpy"
+  end
+
+  def points
+    @found_treasures.values.reduce(0,:+)
   end
 
 end

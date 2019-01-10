@@ -1,3 +1,6 @@
+# Author: Clay Beabout
+# Updated: Jan 10, 2019
+
 module GameTurn
 require_relative 'player'
 require_relative 'die'
@@ -15,8 +18,8 @@ require_relative 'treasure_trove'
     end
 
     #Randomized treasure finding section
-    treasures = TreasureTrove::TREASURES
-    rand_treas = treasures.sample
-    puts "#{player.name} found a #{rand_treas.name} worth #{rand_treas.points}"
+    treasure = TreasureTrove.random
+    player.found_treasure(treasure)
+    puts "#{player.name} found a #{treasure.name} worth #{treasure.points}"
   end
 end

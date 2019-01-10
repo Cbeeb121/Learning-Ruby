@@ -1,5 +1,5 @@
 # Author: Clay Beabout
-# Updated: Jan 9, 2019
+# Updated: Jan 10, 2019
 
 #Finds file from same directory titled player.rb and loads it
 require_relative 'player'
@@ -74,6 +74,13 @@ class Game
       @players.sort.each do |p|
         formatted_name = p.name.ljust(20, '.')
         puts "#{formatted_name} #{p.score}"
+      end
+
+      puts "\n"
+
+      @players.sort.each do |p|
+        puts "\n#{p.name}'s points totals:"
+        puts "#{p.points} grand total points"
       end
   end
 
